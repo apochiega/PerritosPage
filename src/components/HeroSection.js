@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <div className="hero-container">
       
-      <h1>¿QUÉ ESTÁS ESPERANDO?</h1>
+      <h1>¿QUÉ BUSCAS?</h1>
       <p>   </p>
       <div className="hero btns">
       <Link to="/acta-uploader">

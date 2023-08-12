@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -5,12 +6,11 @@ import {
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import "./Navbar.css";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
 import Modal1 from "./Modal1";
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -87,16 +87,7 @@ function Navbar() {
                   Cerrar Sesión
                 </Button>
               </>
-            ) : (
-              <Link className="nav-links-mobile" onClick={openModal}>
-                <Button buttonStyle="btn--outline">
-                  Iniciar Sesión/Registrarse
-                </Button>
-              </Link>
-            )}
-          </div>
-          <div className="menu-icon" onClick={handleClick}>
-            <FontAwesomeIcon icon={click ? faTimes : faBars} />
+            ) : null}
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -123,12 +114,13 @@ function Navbar() {
               </Link>
             </li>
           </ul>
+          <div className="menu-icon" onClick={handleClick}>
+            <FontAwesomeIcon icon={click ? faTimes : faBars} />
+          </div>
           {button && !loggedIn && (
-            <Link>
-              <Button buttonStyle="btn--outline" onClick={openModal}>
-                Iniciar Sesión/Registrarse
-              </Button>
-            </Link>
+            <Button buttonStyle="btn--outline" onClick={openModal}>
+              Iniciar sesión/Registrarse
+            </Button>
           )}
         </div>
       </nav>
