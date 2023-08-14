@@ -1,7 +1,7 @@
 /* Estilos de la ventana modal */
 .modal-content {
     width: 450px;
-    height: 600px;
+    height: 20%;
     margin: auto;
     border: 1px solid #ccc;
     border-radius: 4px;
